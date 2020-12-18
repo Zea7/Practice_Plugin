@@ -1,0 +1,6 @@
+name: Plugin1
+version: 1.0
+main: io.github.Zea7.plugin1.Plugin1
+commands:
+  z:
+    description: "About Plugin"
