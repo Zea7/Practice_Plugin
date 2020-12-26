@@ -88,14 +88,12 @@ class Teleport implements Listener{
     public void teleport(PlayerInteractEvent e){
         Player p = e.getPlayer();
         Action a = e.getAction();
-        if(a==Action.RIGHT_CLICK_AIR||a==Action.RIGHT_CLICK_BLOCK) {
+        if((a==Action.RIGHT_CLICK_AIR||a==Action.RIGHT_CLICK_BLOCK)&&(e.getItem()!=null)) {
             if (e.getItem().getType() == Material.GOLD_INGOT) {
-                if (!Plugin1.is_valid) ;
-
-                else{
+                if(Plugin1.is_valid) {
                     p.teleport(Plugin1.player_location);
                     p.playEffect(EntityEffect.TELEPORT_ENDER);
-                    Plugin1.player_location.getWorld().playSound(Plugin1.player_location,Sound.ENTITY_ENDERMAN_TELEPORT,10,10);
+                    Plugin1.player_location.getWorld().playSound(Plugin1.player_location, Sound.ENTITY_ENDERMAN_TELEPORT, 10, 10);
                 }
             }
         }
@@ -105,7 +103,7 @@ class Teleport implements Listener{
     public void setlocation(PlayerInteractEvent e){
         Player p = e.getPlayer();
         Action a = e.getAction();
-        if(a==Action.LEFT_CLICK_AIR||a==Action.LEFT_CLICK_BLOCK) {
+        if((a==Action.LEFT_CLICK_AIR||a==Action.LEFT_CLICK_BLOCK)&&(e.getItem()!=null)) {
             if (e.getItem().getType() == Material.GOLD_INGOT) {
                 if(!Plugin1.is_valid) Plugin1.is_valid = true;
                 Plugin1.player_location = p.getLocation();
